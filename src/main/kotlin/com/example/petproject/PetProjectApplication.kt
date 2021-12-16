@@ -8,5 +8,4 @@ class PetProjectApplication
 
 fun main(args: Array<String>) {
 	runApplication<PetProjectApplication>(*args)
-	print("hello")
 }
