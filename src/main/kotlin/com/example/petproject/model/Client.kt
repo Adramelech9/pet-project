@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
-data class Client (
+data class Client(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long? = 0,
@@ -15,5 +15,11 @@ data class Client (
     val first_name: String? = null,
     val last_name: String? = null,
     val created_at: LocalDateTime? = null,
-    var updated_at: LocalDateTime? = null
+    var updated_at: LocalDateTime? = null,
+
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
+    var vehicles: Set<Vehicle>? = null,
+
+    @OneToMany(mappedBy = "owner", cascade = [(CascadeType.ALL)], fetch = FetchType.LAZY)
+    var contracts: Set<InsuranceContract>? = null
 )
