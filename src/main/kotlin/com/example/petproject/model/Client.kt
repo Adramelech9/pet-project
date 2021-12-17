@@ -1,10 +1,12 @@
 package com.example.petproject.model
 
 import java.time.LocalDateTime
-import javax.persistence.*
+import javax.persistence.Entity
+import javax.persistence.FetchType
+import javax.persistence.OneToMany
 
 @Entity
- class Client : RequiredAttributes() {
+class Client : RequiredAttributes() {
 
     var email: String? = null
     val password: String? = null
@@ -15,6 +17,6 @@ import javax.persistence.*
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
     var vehicles: Set<Vehicle>? = null
 
-    @OneToMany(mappedBy = "owner", cascade = [(CascadeType.ALL)], fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
     var contracts: Set<InsuranceContract>? = null
 }

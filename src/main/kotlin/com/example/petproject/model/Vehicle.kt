@@ -1,7 +1,11 @@
 package com.example.petproject.model
 
 import java.time.LocalDateTime
-import javax.persistence.*
+import javax.persistence.Entity
+import javax.persistence.FetchType
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
+import javax.persistence.OneToOne
 
 @Entity
 class Vehicle : RequiredAttributes() {
@@ -14,6 +18,6 @@ class Vehicle : RequiredAttributes() {
     @JoinColumn(name = "client_id")
     var owner: Client? = null
 
-    @OneToOne(cascade = [(CascadeType.ALL)], fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     var contractId: InsuranceContract? = null
 }

@@ -1,11 +1,16 @@
 package com.example.petproject.model
 
 import java.time.LocalDateTime
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
+import javax.persistence.MappedSuperclass
 
-
-abstract class RequiredAttributes {
-    abstract val id: Long
-    abstract val uuid: String
-    abstract val created_at: LocalDateTime
-    abstract var updated_at: LocalDateTime
-}
+@MappedSuperclass
+open class RequiredAttributes (
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Long? = 0,
+    val uuid: String? = null,
+    val created_at: LocalDateTime? = null,
+    val updated_at: LocalDateTime? = null
+)
