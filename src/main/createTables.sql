@@ -7,7 +7,8 @@ CREATE TABLE client (
     first_name  VARCHAR(50)        NOT NULL,
     last_name   VARCHAR(50)        NOT NULL,
     created_at  TIMESTAMP          NOT NULL,
-    updated_at  TIMESTAMP          NOT NULL
+    updated_at  TIMESTAMP          NOT NULL,
+    contract_id INT
 );
 
 CREATE TABLE vehicle (
@@ -15,11 +16,13 @@ CREATE TABLE vehicle (
     uuid                VARCHAR(50) UNIQUE NOT NULL,
     color               VARCHAR(50)        NOT NULL,
     engine_capacity     INT                NOT NULL,
-    year_of_manufacture VARCHAR(50)        NOT NULL,
+    year_of_manufacture INT                NOT NULL,
     weight_kg           INT                NOT NULL,
     created_at          TIMESTAMP          NOT NULL,
     updated_at          TIMESTAMP          NOT NULL,
-    constraint fk_client foreign key (id) references client (id)
+    client_id           INT,
+    kit_id              INT,
+    constraint fk_client foreign key (client_id) references client (id)
 );
 
 CREATE TABLE insurance_kit (
@@ -38,24 +41,21 @@ CREATE TABLE insurance_contract (
     uuid       VARCHAR(50) UNIQUE NOT NULL,
     created_at TIMESTAMP          NOT NULL,
     updated_at TIMESTAMP          NOT NULL,
-    constraint fk_client foreign key (id) references client (id)
+    client_id  INT,
+    constraint fk_client foreign key (client_id) references client (id)
 );
 
-alter table if exists vehicle
-    add constraint fk_insurance_kit
-    foreign key (id) references insurance_kit;
+alter table vehicle
+    add foreign key (kit_id) references insurance_kit;
 
-CREATE TABLE catalog_contracts (
-    id_contract int not null,
-    id_kit int not null,
-    primary key (id_contract, id_kit),
-    constraint id_contract foreign key (id_contract) references insurance_contract (id),
-    constraint id_kit foreign key (id_kit) references insurance_kit (id)
+CREATE TABLE contract_kit (
+    contract_id int not null,
+    kit_id int not null,
+    primary key (contract_id, kit_id),
+    constraint contract_kit_contract_id_insurance_contract_fk foreign key (contract_id) references insurance_contract (id),
+    constraint contract_kit_kit_id_insurance_contract_fk foreign key (kit_id) references insurance_kit (id)
 );
-alter table if exists vehicle
-    add constraint fk_contract
-    foreign key (id) references insurance_kit;
 
-alter table if exists client
+alter table client
     add constraint fk_contract
-    foreign key (id) references insurance_contract;
+    foreign key (contract_id) references insurance_contract;
