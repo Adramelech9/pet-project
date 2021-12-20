@@ -1,21 +1,19 @@
 package com.example.petproject.model
 
 import javax.persistence.Entity
-import javax.persistence.FetchType
 import javax.persistence.JoinColumn
+import javax.persistence.ManyToMany
 import javax.persistence.ManyToOne
-import javax.persistence.OneToMany
 import javax.persistence.Table
 
 @Entity
-@Table(name = "insurance_Contract")
+@Table(name = "insurance_contract")
 class InsuranceContract: BaseEntity() {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    var owner: Client? = null
+    lateinit var owner: Client
 
-    @OneToMany(mappedBy = "contract", fetch = FetchType.LAZY)
-    var kits: Set<InsuranceKit>? = null
-
+    @ManyToMany(mappedBy = "contracts")
+    var kits: Set<InsuranceKit> = mutableSetOf()
 }

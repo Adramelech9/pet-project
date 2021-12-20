@@ -2,26 +2,30 @@ package com.example.petproject.model
 
 import java.time.LocalDateTime
 import javax.persistence.Entity
-import javax.persistence.EnumType
+import javax.persistence.EnumType.STRING
 import javax.persistence.Enumerated
-import javax.persistence.FetchType
 import javax.persistence.JoinColumn
-import javax.persistence.ManyToOne
+import javax.persistence.JoinTable
+import javax.persistence.ManyToMany
 import javax.persistence.Table
 
 @Entity
 @Table(name = "insurance_kit")
 class InsuranceKit: BaseEntity() {
-    var duration: LocalDateTime? = null
-    val compensation_percent: Int? = null
+    lateinit var duration: LocalDateTime
+    val compensationPercent: Int = 0
 
-    @Enumerated(EnumType.STRING)
-    var damage_level: DamageLevel? = null
+    @Enumerated(STRING)
+    lateinit var damageLevel: DamageLevel
 
-    @Enumerated(EnumType.STRING)
-    var covered_part: CoveredPart? = null
+    @Enumerated(STRING)
+    lateinit var coveredPart: CoveredPart
 
-    @ManyToOne
-    @JoinColumn(name = "contract_id")
-    var contract: InsuranceContract? = null
+    @ManyToMany
+    @JoinTable(
+        name = "contract_kit",
+        joinColumns = [JoinColumn(name = "contract_id")],
+        inverseJoinColumns = [JoinColumn(name = "kit_id")]
+    )
+    var contracts: Set<InsuranceContract> = mutableSetOf()
 }

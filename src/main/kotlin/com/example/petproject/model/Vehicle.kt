@@ -11,15 +11,15 @@ import javax.persistence.Table
 @Entity
 @Table(name = "vehicle")
 class Vehicle : BaseEntity() {
-    var color: String? = null
-    val engine_capacity: String? = null
-    val year_of_manufacture: LocalDateTime? = null
-    var weight_kg: Int? = 0
+    var color: String = ""
+    val engineCapacity: String = ""
+    lateinit var yearOfManufacture: LocalDateTime
+    var weightKg: Int = 0
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    var owner: Client? = null
+    lateinit var owner: Client
 
     @OneToOne(fetch = FetchType.LAZY)
-    var contractId: InsuranceContract? = null
+    lateinit var contractId: InsuranceContract
 }
