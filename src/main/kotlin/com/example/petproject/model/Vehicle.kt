@@ -13,7 +13,7 @@ import javax.persistence.Table
 class Vehicle : BaseEntity() {
     var color: String = ""
     val engineCapacity: String = ""
-    lateinit var yearOfManufacture: LocalDateTime
+    var yearOfManufacture: Int = 0
     var weightKg: Int = 0
 
     @ManyToOne

@@ -24,8 +24,8 @@ class InsuranceKit: BaseEntity() {
     @ManyToMany
     @JoinTable(
         name = "contract_kit",
-        joinColumns = [JoinColumn(name = "contract_id")],
-        inverseJoinColumns = [JoinColumn(name = "kit_id")]
+        joinColumns = [JoinColumn(name = "contract_id", referencedColumnName = "id")],
+        inverseJoinColumns = [JoinColumn(name = "kit_id", referencedColumnName = "id")]
     )
     var contracts: Set<InsuranceContract> = mutableSetOf()
 }

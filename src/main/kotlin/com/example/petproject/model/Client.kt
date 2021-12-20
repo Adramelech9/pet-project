@@ -1,6 +1,6 @@
 package com.example.petproject.model
 
-import java.time.LocalDateTime
+import java.time.LocalDate
 import javax.persistence.Entity
 import javax.persistence.FetchType.LAZY
 import javax.persistence.OneToMany
@@ -12,7 +12,7 @@ class Client : BaseEntity() {
 
     var email: String = ""
     val password: String = ""
-    lateinit var birthDate: LocalDateTime
+    lateinit var birthDate: LocalDate
     val firstName: String = ""
     val lastName: String = ""
 
