@@ -9,7 +9,8 @@ import javax.persistence.MappedSuperclass
 
 @MappedSuperclass
 abstract class BaseEntity (
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long? = 0,
     val uuid: String? = null,
     @CreatedDate
