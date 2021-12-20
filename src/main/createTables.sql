@@ -21,7 +21,7 @@ CREATE TABLE vehicle (
     updated_at          TIMESTAMP          NOT NULL,
     client_id           INT,
     contract_id         INT,
-    constraint fk_client foreign key (client_id) references client (id)
+    constraint vehicle_client_id_fk foreign key (client_id) references client (id)
 );
 
 CREATE TABLE insurance_kit (
@@ -41,7 +41,7 @@ CREATE TABLE insurance_contract (
     created_at TIMESTAMP          NOT NULL,
     updated_at TIMESTAMP          NOT NULL,
     client_id  INT,
-    constraint fk_client foreign key (client_id) references client (id)
+    constraint insurance_contract_client_id_fk foreign key (client_id) references client (id)
 );
 
 alter table vehicle
