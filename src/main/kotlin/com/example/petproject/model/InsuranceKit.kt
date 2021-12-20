@@ -11,7 +11,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "insurance_kit")
-class InsuranceKit: RequiredAttributes() {
+class InsuranceKit: BaseEntity() {
     var duration: LocalDateTime? = null
     val compensation_percent: Int? = null
 

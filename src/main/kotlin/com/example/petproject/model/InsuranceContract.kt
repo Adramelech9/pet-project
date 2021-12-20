@@ -9,9 +9,9 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "insurance_Contract")
-class InsuranceContract: RequiredAttributes() {
+class InsuranceContract: BaseEntity() {
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "client_id")
     var owner: Client? = null
 
