@@ -21,7 +21,7 @@ class InsuranceKit: BaseEntity() {
     @Enumerated(EnumType.STRING)
     var covered_part: CoveredPart? = null
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "contract_id")
     var contract: InsuranceContract? = null
 }
