@@ -45,7 +45,7 @@ CREATE TABLE insurance_contract (
 );
 
 alter table vehicle
-    add foreign key (contract_id) references insurance_kit;
+    add foreign key (contract_id) references insurance_contract;
 
 CREATE TABLE contract_kit (
     contract_id int not null,
