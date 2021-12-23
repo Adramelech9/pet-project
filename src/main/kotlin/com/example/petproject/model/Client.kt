@@ -11,10 +11,10 @@ import javax.persistence.Table
 class Client : BaseEntity() {
 
     var email: String = ""
-    val password: String = ""
+    var password: String = ""
     lateinit var birthDate: LocalDate
-    val firstName: String = ""
-    val lastName: String = ""
+    var firstName: String = ""
+    var lastName: String = ""
 
     @OneToMany(mappedBy = "owner", fetch = LAZY)
     var vehicles: Set<Vehicle> = mutableSetOf()
