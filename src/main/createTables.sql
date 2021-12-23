@@ -40,7 +40,7 @@ CREATE TABLE insurance_contract (
     uuid       VARCHAR(50) UNIQUE NOT NULL,
     created_at TIMESTAMP          NOT NULL,
     updated_at TIMESTAMP          NOT NULL,
-    client_id  INT,
+    client_id  INT                NOT NULL,
     constraint insurance_contract_client_id_fk foreign key (client_id) references client (id)
 );
 
