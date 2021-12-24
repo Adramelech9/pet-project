@@ -4,8 +4,6 @@ import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.EnumType.STRING
 import javax.persistence.Enumerated
-import javax.persistence.JoinColumn
-import javax.persistence.JoinTable
 import javax.persistence.ManyToMany
 import javax.persistence.Table
 
@@ -21,11 +19,6 @@ class InsuranceKit: BaseEntity() {
     @Enumerated(STRING)
     lateinit var coveredPart: CoveredPart
 
-    @ManyToMany
-    @JoinTable(
-        name = "contract_kit",
-        joinColumns = [JoinColumn(name = "contract_id")],
-        inverseJoinColumns = [JoinColumn(name = "kit_id")]
-    )
-    var contracts: Set<InsuranceContract> = mutableSetOf()
+    @ManyToMany(mappedBy = "kits")
+    var contracts: MutableSet<InsuranceContract> = mutableSetOf()
 }

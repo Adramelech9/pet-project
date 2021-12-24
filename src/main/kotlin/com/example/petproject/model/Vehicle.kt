@@ -11,7 +11,7 @@ import javax.persistence.Table
 @Table(name = "vehicle")
 class Vehicle : BaseEntity() {
     var color: String = ""
-    val engineCapacity: String = ""
+    val engineCapacity: Int = 0
     var yearOfManufacture: Int = 0
     var weightKg: Int = 0
 
@@ -20,5 +20,5 @@ class Vehicle : BaseEntity() {
     lateinit var owner: Client
 
     @OneToOne(fetch = FetchType.LAZY)
-    lateinit var contractId: InsuranceContract
+    lateinit var contract: InsuranceContract
 }
