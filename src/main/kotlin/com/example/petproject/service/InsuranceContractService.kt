@@ -11,6 +11,8 @@ class InsuranceContractService(
     private val insuranceContractTransformer: InsuranceContractTransformer
 ) {
     fun addContract(insuranceContractDto: InsuranceContractDto) {
-        insuranceContractRepository.save(insuranceContractTransformer.transform(insuranceContractDto))
+        if (insuranceContractDto.kits.size < 3)
+            insuranceContractRepository.save(insuranceContractTransformer.transform(insuranceContractDto))
+        else throw Error("too many kits, cannot be more than 3")
     }
 }
