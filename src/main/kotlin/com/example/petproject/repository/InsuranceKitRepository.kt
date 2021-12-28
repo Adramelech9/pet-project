@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository
 interface InsuranceKitRepository: JpaRepository<InsuranceKit, Long> {
 
     fun findByIdIn(id: List<Long>): Set<InsuranceKit>
-    fun countInsuranceKit(): Long
 }
