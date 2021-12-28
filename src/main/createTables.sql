@@ -52,5 +52,5 @@ CREATE TABLE contract_kit (
     kit_id bigint not null,
     primary key (contract_id, kit_id),
     constraint contract_kit_contract_id_insurance_contract_fk foreign key (contract_id) references insurance_contract (id),
-    constraint contract_kit_kit_id_insurance_contract_fk foreign key (kit_id) references insurance_kit (id)
+    constraint contract_kit_kit_id_insurance_kit_fk foreign key (kit_id) references insurance_kit (id)
 );
