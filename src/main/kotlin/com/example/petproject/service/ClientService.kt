@@ -10,8 +10,7 @@ class ClientService(
     private val clientRepository: ClientRepository,
     private val clientTransformer: ClientTransformer
 ) {
-    fun addClient(clientDto: ClientDto) {
+    fun addClient(clientDto: ClientDto) =
         clientRepository.save(clientTransformer.transform(clientDto))
-    }
 }
 

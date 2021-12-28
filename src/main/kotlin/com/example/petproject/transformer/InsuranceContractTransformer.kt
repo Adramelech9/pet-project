@@ -14,14 +14,14 @@ class InsuranceContractTransformer(
     private val insuranceKitRepository: InsuranceKitRepository
 ) {
 
-    fun transform(preference: InsuranceContract) = InsuranceContractDto(
-        clientId = preference.owner.id,
-        kits = preference.kits.map {it.id}
+    fun transform(entity: InsuranceContract) = InsuranceContractDto(
+        clientId = entity.owner.id,
+        kits = entity.kits.map {it.id}
     )
 
-    fun transform(preference: InsuranceContractDto) = InsuranceContract().apply {
-        owner = findClientById(preference.clientId)
-        kits = insuranceKitRepository.findByIdIn(preference.kits).toMutableSet()
+    fun transform(dto: InsuranceContractDto) = InsuranceContract().apply {
+        owner = findClientById(dto.clientId)
+        kits = insuranceKitRepository.findByIdIn(dto.kits).toMutableSet()
     }
 
     private fun findClientById(clientId: Long) = clientRepository.findByIdOrNull(clientId)

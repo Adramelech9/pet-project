@@ -7,17 +7,17 @@ import org.springframework.stereotype.Component
 @Component
 class InsuranceKitTransformer {
 
-    fun transform(preference: InsuranceKit) = InsuranceKitDto(
-        duration = preference.duration,
-        compensationPercent = preference.compensationPercent,
-        damageLevel = preference.damageLevel,
-        coveredPart = preference.coveredPart
+    fun transform(entity: InsuranceKit) = InsuranceKitDto(
+        duration = entity.duration,
+        compensationPercent = entity.compensationPercent,
+        damageLevel = entity.damageLevel,
+        coveredPart = entity.coveredPart
     )
 
-    fun transform(preference: InsuranceKitDto) = InsuranceKit().apply {
-        duration = preference.duration
-        compensationPercent = preference.compensationPercent
-        damageLevel = preference.damageLevel
-        coveredPart = preference.coveredPart
+    fun transform(dto: InsuranceKitDto) = InsuranceKit().apply {
+        duration = dto.duration
+        compensationPercent = dto.compensationPercent
+        damageLevel = dto.damageLevel
+        coveredPart = dto.coveredPart
     }
 }

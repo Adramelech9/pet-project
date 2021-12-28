@@ -20,5 +20,5 @@ class InsuranceKit: BaseEntity() {
     lateinit var coveredPart: CoveredPart
 
     @ManyToMany(mappedBy = "kits")
-    var contracts: MutableSet<InsuranceContract> = mutableSetOf()
+    var contracts = mutableSetOf<InsuranceContract>()
 }

@@ -21,5 +21,5 @@ class InsuranceContract: BaseEntity() {
         joinColumns = [JoinColumn(name = "contract_id")],
         inverseJoinColumns = [JoinColumn(name = "kit_id")]
     )
-    var kits: MutableSet<InsuranceKit> = mutableSetOf()
+    var kits = mutableSetOf<InsuranceKit>()
 }
