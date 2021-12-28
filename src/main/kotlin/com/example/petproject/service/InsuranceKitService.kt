@@ -12,6 +12,8 @@ class InsuranceKitService(
 ) {
 
     fun addKit(insuranceKitDto: InsuranceKitDto) {
-        insuranceKitRepository.save(insuranceKitTransformer.transform(insuranceKitDto))
+        if (insuranceKitRepository.countInsuranceKit() <= 2)
+            insuranceKitRepository.save(insuranceKitTransformer.transform(insuranceKitDto))
+        else throw Error("too many kits, cannot be more than 3")
     }
 }
