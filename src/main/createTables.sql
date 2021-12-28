@@ -3,7 +3,7 @@ CREATE TABLE client (
     uuid        VARCHAR(50) UNIQUE NOT NULL,
     email       VARCHAR(50)        NOT NULL,
     password    VARCHAR(50)        NOT NULL,
-    birth_date  DATE            NOT NULL,
+    birth_date  DATE               NOT NULL,
     first_name  VARCHAR(50)        NOT NULL,
     last_name   VARCHAR(50)        NOT NULL,
     created_at  TIMESTAMP          NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE insurance_contract (
     uuid       VARCHAR(50) UNIQUE NOT NULL,
     created_at TIMESTAMP          NOT NULL,
     updated_at TIMESTAMP          NOT NULL,
-    client_id  bigint                NOT NULL,
+    client_id  bigint             NOT NULL,
     constraint insurance_contract_client_id_fk foreign key (client_id) references client (id)
 );
 
