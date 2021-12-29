@@ -2,6 +2,7 @@ package com.example.petproject.model
 
 import javax.persistence.Entity
 import javax.persistence.JoinColumn
+import javax.persistence.JoinTable
 import javax.persistence.ManyToMany
 import javax.persistence.ManyToOne
 import javax.persistence.Table
@@ -14,6 +15,11 @@ class InsuranceContract: BaseEntity() {
     @JoinColumn(name = "client_id")
     lateinit var owner: Client
 
-    @ManyToMany(mappedBy = "contracts")
-    var kits: Set<InsuranceKit> = mutableSetOf()
+    @ManyToMany
+    @JoinTable(
+        name = "contract_kit",
+        joinColumns = [JoinColumn(name = "contract_id")],
+        inverseJoinColumns = [JoinColumn(name = "kit_id")]
+    )
+    var kits = mutableSetOf<InsuranceKit>()
 }
