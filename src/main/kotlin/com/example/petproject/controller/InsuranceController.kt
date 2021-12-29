@@ -4,7 +4,6 @@ import com.example.petproject.model.dto.InsuranceContractDto
 import com.example.petproject.model.dto.InsuranceKitDto
 import com.example.petproject.service.InsuranceContractService
 import com.example.petproject.service.InsuranceKitService
-import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
