@@ -11,7 +11,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="id"  type="${id.type}">
                 <constraints primaryKey="true" primaryKeyName="client_id_pk" />
             </column>
-            <column name="uuid" type="${string.type}">
+            <column name="uuid" type="${uuid.type}">
                 <constraints nullable="false" unique="true" uniqueConstraintName="client_uuid_unq" />
             </column>
             <column name="email" type="${string.type}">
@@ -41,7 +41,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="id" type="${id.type}">
                 <constraints primaryKey="true" primaryKeyName="vehicle_id_pk" />
             </column>
-            <column name="uuid" type="${string.type}">
+            <column name="uuid" type="${uuid.type}">
                 <constraints nullable="false" unique="true" uniqueConstraintName="vehicle_uuid_unq" />
             </column>
             <column name="color" type="${string.type}">
@@ -72,7 +72,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="id" type="${id.type}">
                 <constraints primaryKey="true" primaryKeyName="insurance_kit_id_pk" />
             </column>
-            <column name="uuid" type="${string.type}">
+            <column name="uuid" type="${uuid.type}">
                 <constraints nullable="false" unique="true" uniqueConstraintName="insurance_kit_uuid_unq" />
             </column>
             <column name="duration" type="timestamp">
@@ -99,7 +99,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="id" type="${id.type}">
                 <constraints primaryKey="true" primaryKeyName="insurance_contract_id_pk" />
             </column>
-            <column name="uuid" type="${string.type}">
+            <column name="uuid" type="${uuid.type}">
                 <constraints nullable="false" unique="true" uniqueConstraintName="insurance_contract_uuid_unq" />
             </column>
             <column name="created_at" type="timestamp">

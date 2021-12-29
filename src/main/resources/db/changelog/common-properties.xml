@@ -8,4 +8,6 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
 
     <property name="id.type" value="BIGINT"/>
     <property name="string.type" value="VARCHAR(255)"/>
+    <property name="uuid.type" value="VARCHAR(36)"/>
+
 </databaseChangeLog>
