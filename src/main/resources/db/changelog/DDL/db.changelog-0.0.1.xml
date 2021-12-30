@@ -57,7 +57,6 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
                 <constraints nullable="false" />
             </column>
             <column name="created_at" type="timestamp">
-
                 <constraints nullable="false" />
             </column>
             <column name="updated_at" type="timestamp">

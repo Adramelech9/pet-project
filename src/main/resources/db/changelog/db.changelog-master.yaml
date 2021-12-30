@@ -1,8 +1,7 @@
 databaseChangeLog:
-    - include:
-        file: db/changelog/common-properties.xml
-    - include:
-        file: db/changelog/DDL/db.changelog-0.0.1.xml
-    - include:
-        file: db/changelog/DML/db.changelog-0.0.1.xml
-
+  - include:
+      file: db/changelog/common-properties.xml
+  - include:
+      file: db/changelog/DDL/db.changelog-0.0.1.xml
+  - include:
+      file: db/changelog/DML/db.changelog-0.0.1.xml
