@@ -5,8 +5,7 @@ import com.example.petproject.model.dto.ClientDto
 import org.springframework.stereotype.Component
 
 @Component
-class ClientTransformer(
-) {
+class ClientTransformer {
 
     fun transform(entity: Client) = ClientDto(
         email = entity.email,
