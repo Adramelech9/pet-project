@@ -1,6 +1,5 @@
 package com.example.petproject.controller
 
-import com.example.petproject.model.Client
 import com.example.petproject.model.dto.ClientDto
 import com.example.petproject.service.ClientService
 import org.springframework.web.bind.annotation.GetMapping
@@ -21,10 +20,10 @@ class ClientController(
         clientService.addClient(clientDto)
 
     @GetMapping()
-    fun showAllClients(@RequestBody client: Client) =
-        clientService.showAllClients(client)
+    fun showAllClients() =
+        clientService.showAllClients()
 
-    @GetMapping("{id}")
-    fun showClientsDetail(@RequestBody client: Client, @PathVariable id: Int) =
-        clientService.showClients(client, id)
+    @GetMapping("/{id}")
+    fun showClientsDetail(@PathVariable id: Long) =
+        clientService.showClients(id)
 }
