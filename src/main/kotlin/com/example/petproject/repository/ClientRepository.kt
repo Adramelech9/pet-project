@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository
 @Repository
 interface ClientRepository: JpaRepository<Client, Long> {
 
-    @Query("select c.id, c.firstName, c.lastName from Client c")
-    fun findAllName(): List<String>
+    @Query("select c from Client c")
+    fun findAllClient(): List<Client>
 
     fun findClientById(id: Long): Client
 }

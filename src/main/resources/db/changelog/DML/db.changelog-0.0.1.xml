@@ -17,6 +17,17 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="created_at" value="2021-12-29T09:25:19.418174"/>
             <column name="updated_at" value="2021-12-29T09:25:19.418174"/>
         </insert>
+        <insert tableName="client">
+            <column name="id" value="2"/>
+            <column name="uuid" value="53852349-0ae6-4bab-a02a-c46f430fad61"/>
+            <column name="email" value="t@t.com"/>
+            <column name="password" value="1234"/>
+            <column name="birth_date" value="2000-01-01"/>
+            <column name="first_name" value="Q"/>
+            <column name="last_name" value="W"/>
+            <column name="created_at" value="2021-12-29T09:25:19.418174"/>
+            <column name="updated_at" value="2021-12-29T09:25:19.418174"/>
+        </insert>
 
         <insert tableName="insurance_contract">
             <column name="id" value="1"/>
