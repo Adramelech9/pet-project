@@ -24,6 +24,7 @@ dependencies {
 
 	implementation("org.postgresql:postgresql")
 	implementation("org.springframework.boot:spring-boot-starter-web" )
+	implementation("org.liquibase:liquibase-core")
 }
 
 tasks.withType<KotlinCompile> {
