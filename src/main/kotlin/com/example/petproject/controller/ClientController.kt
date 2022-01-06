@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/clients")
 class ClientController(
     private var clientService: ClientService
 ) {
@@ -25,5 +25,5 @@ class ClientController(
 
     @GetMapping("/{id}")
     fun showClientsDetail(@PathVariable id: Long) =
-        clientService.showClients(id)
+        clientService.showClientById(id)
 }

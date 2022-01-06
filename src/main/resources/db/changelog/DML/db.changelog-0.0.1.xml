@@ -23,8 +23,8 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
             <column name="email" value="t@t.com"/>
             <column name="password" value="1234"/>
             <column name="birth_date" value="2000-01-01"/>
-            <column name="first_name" value="Q"/>
-            <column name="last_name" value="W"/>
+            <column name="first_name" value="QW"/>
+            <column name="last_name" value="WE"/>
             <column name="created_at" value="2021-12-29T09:25:19.418174"/>
             <column name="updated_at" value="2021-12-29T09:25:19.418174"/>
         </insert>

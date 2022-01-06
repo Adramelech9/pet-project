@@ -18,7 +18,7 @@ class ClientService(
         return clientRepository.findAll().map { clientTransformer.transformAllClients(it) }
     }
 
-    fun showClients(id: Long): ClientDto {
+    fun showClientById(id: Long): ClientDto {
         return clientTransformer.transform(clientRepository.findClientById(id))
     }
 }
