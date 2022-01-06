@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+    <changeSet id="ADD_MODEL" author="d.lapitan@itransition.com" >
+        <insert tableName="client">
+            <column name="id" value="3"/>
+            <column name="uuid" value="2e539e55-f41f-464b-8e3f-99dabb314e87"/>
+            <column name="email" value="t@t.com"/>
+            <column name="password" value="1234"/>
+            <column name="birth_date" value="2000-01-01"/>
+            <column name="first_name" value="Test"/>
+            <column name="last_name" value="NuN"/>
+            <column name="created_at" value="2021-12-29T09:25:19.418174"/>
+            <column name="updated_at" value="2021-12-29T09:25:19.418174"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

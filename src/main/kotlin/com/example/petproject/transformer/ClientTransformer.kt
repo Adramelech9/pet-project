@@ -1,7 +1,7 @@
 package com.example.petproject.transformer
 
 import com.example.petproject.model.Client
-import com.example.petproject.model.dto.AllClientDto
+import com.example.petproject.model.dto.ShortClientDto
 import com.example.petproject.model.dto.ClientDto
 import org.springframework.stereotype.Component
 
@@ -24,7 +24,7 @@ class ClientTransformer {
         lastName = dto.lastName
     }
 
-    fun transformAllClients(entity: Client) = AllClientDto(
+    fun transformAllClients(entity: Client) = ShortClientDto(
         id = entity.id,
         firstName = entity.firstName,
         lastName = entity.lastName

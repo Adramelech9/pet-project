@@ -1,6 +1,6 @@
 package com.example.petproject.service
 
-import com.example.petproject.model.dto.AllClientDto
+import com.example.petproject.model.dto.ShortClientDto
 import com.example.petproject.model.dto.ClientDto
 import com.example.petproject.repository.ClientRepository
 import com.example.petproject.transformer.ClientTransformer
@@ -14,7 +14,7 @@ class ClientService(
     fun addClient(clientDto: ClientDto) =
         clientRepository.save(clientTransformer.transform(clientDto))
 
-    fun showAllClients(): List<AllClientDto> {
+    fun showAllClients(): List<ShortClientDto> {
         return clientRepository.findAll().map { clientTransformer.transformAllClients(it) }
     }
 
