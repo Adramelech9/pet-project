@@ -12,11 +12,10 @@ class ClientService(
     private val clientTransformer: ClientTransformer
 ) {
     fun addClient(clientDto: ClientDto) =
-        clientRepository.save(clientTransformer.transform(clientDto))
+        clientRepository.save(clientTransformer.transform(clientDto)).id
 
-    fun showAllClients(): List<ShortClientDto> {
-        return clientRepository.findAll().map { clientTransformer.transformAllClients(it) }
-    }
+    fun showAllClients(): List<ShortClientDto> =
+         clientRepository.findAll().map { clientTransformer.transformAllClients(it) }
 
     fun showClientById(id: Long): ClientDto {
         return clientTransformer.transform(clientRepository.findClientById(id))

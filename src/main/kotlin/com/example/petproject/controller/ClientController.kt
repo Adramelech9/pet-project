@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/clients")
-class ClientController(
-    private var clientService: ClientService
-) {
+class ClientController(private var clientService: ClientService) {
 
     @PostMapping()
     fun addClient(@RequestBody clientDto: ClientDto) =
