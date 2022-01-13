@@ -16,9 +16,9 @@ class ClientService(
         clientRepository.save(clientTransformer.transform(clientDto)).id
 
     fun showAllClients(): List<ShortClientDto> =
-        clientRepository.findAll().map { clientTransformer.transformAllClients(it) }
+        clientRepository.findAll().map { clientTransformer.transformShortClients(it) }
 
     fun showClientById(id: Long): ClientDto =
-        clientTransformer.transform(clientRepository.findClientById(id))
+        clientTransformer.transform(clientRepository.findById(id).orElseThrow())
 }
 

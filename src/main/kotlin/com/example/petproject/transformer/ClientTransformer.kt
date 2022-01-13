@@ -24,7 +24,7 @@ class ClientTransformer {
         lastName = dto.lastName
     }
 
-    fun transformAllClients(entity: Client) = ShortClientDto(
+    fun transformShortClients(entity: Client) = ShortClientDto(
         id = entity.id,
         firstName = entity.firstName,
         lastName = entity.lastName

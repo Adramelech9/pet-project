@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api/clients")
 class ClientController(private var clientService: ClientService) {
 
-    @PostMapping()
+    @PostMapping
     fun addClient(@RequestBody clientDto: ClientDto) =
         clientService.addClient(clientDto)
 
-    @GetMapping()
+    @GetMapping
     fun showAllClients() =
         clientService.showAllClients()
 
