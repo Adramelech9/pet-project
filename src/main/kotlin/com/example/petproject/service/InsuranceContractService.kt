@@ -10,7 +10,6 @@ class InsuranceContractService(
     private val insuranceContractRepository: InsuranceContractRepository,
     private val insuranceContractTransformer: InsuranceContractTransformer
 ) {
-
     fun addContract(insuranceContractDto: InsuranceContractDto) {
         if (insuranceContractDto.kits.size <= 3)
             insuranceContractRepository.save(insuranceContractTransformer.transform(insuranceContractDto))
