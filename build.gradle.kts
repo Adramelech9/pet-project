@@ -25,6 +25,12 @@ dependencies {
     implementation("org.postgresql:postgresql")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.liquibase:liquibase-core")
+
+    testImplementation("com.h2database:h2:2.0.206")
+    testImplementation("io.mockk:mockk:1.12.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+
 }
 
 tasks.withType<KotlinCompile> {
