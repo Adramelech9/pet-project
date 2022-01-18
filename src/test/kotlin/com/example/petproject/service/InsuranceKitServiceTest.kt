@@ -36,10 +36,8 @@ internal class InsuranceKitServiceTest {
     fun `add new kit`() {
         // Setup
         saveKits(2)
-
         // Execute
         insuranceKitService.addKit(dto)
-
         // Verify
         assertEquals(insuranceKitRepository.countKits(), 3)
     }
