@@ -67,34 +67,12 @@ internal class ClientControllerTest {
     }
 
     @Test
-    fun `add new valid client without dto`() {
-        mockMvc.post(path) {
-            param("email", "2@fmail.com")
-            param("password", "123456")
-            param("birthDate", "2000-01-02")
-            param("firstName", "Din")
-            param("lastName", "Don")
-        }.andExpect { status().is3xxRedirection }
-    }
-
-    @Test
     fun `add new invalid client`() {
         mockMvc.perform(
             MockMvcRequestBuilders.post(path)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(invalidDto))
         ).andExpect(status().is4xxClientError)
-    }
-
-    @Test
-    fun `add new invalid client without dto`() {
-        mockMvc.post(path) {
-            param("email", "")
-            param("password", "")
-            param("birthDate", "2000-01-02")
-            param("firstName", "")
-            param("lastName", "")
-        }.andExpect { status().is4xxClientError }
     }
 
     @ParameterizedTest
