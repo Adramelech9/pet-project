@@ -19,7 +19,7 @@ class ClientController(private var clientService: ClientService) {
 
     @GetMapping
     fun showAllClients() =
-        clientService.showAllClients()
+        clientService.findShortClients()
 
     @GetMapping("/{id}")
     fun showClientsDetail(@PathVariable id: Long) =
