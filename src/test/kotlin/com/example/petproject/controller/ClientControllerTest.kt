@@ -28,8 +28,6 @@ internal class ClientControllerTest {
 
     @Test
     fun `find client`() {
-//        mockMvc.perform(get("/api/clients/2"))
-//            .andExpect(status().isOk)
         mockMvc.get("/api/clients/e")
             .andExpect { status().isOk }
     }
@@ -37,7 +35,6 @@ internal class ClientControllerTest {
     @Test
     fun `add new valid client`() {
         mockMvc.post("/api/clients") {
-
             param("email", "2@fmail.com")
             param("password", "123456")
             param("birthDate", "2000-01-02")
