@@ -1,8 +1,8 @@
 package com.example.petproject.transformer
 
 import com.example.petproject.model.Client
-import com.example.petproject.model.dto.ShortClientDto
 import com.example.petproject.model.dto.ClientDto
+import com.example.petproject.model.dto.ShortClientDto
 import org.springframework.stereotype.Component
 
 @Component

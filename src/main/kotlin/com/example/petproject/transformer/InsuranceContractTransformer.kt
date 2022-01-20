@@ -16,7 +16,7 @@ class InsuranceContractTransformer(
 
     fun transform(entity: InsuranceContract) = InsuranceContractDto(
         clientId = entity.owner.id,
-        kits = entity.kits.map {it.id}
+        kits = entity.kits.map { it.id }
     )
 
     fun transform(dto: InsuranceContractDto) = InsuranceContract().apply {

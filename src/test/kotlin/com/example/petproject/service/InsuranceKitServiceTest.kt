@@ -48,11 +48,9 @@ internal class InsuranceKitServiceTest : BaseRepositoryTest() {
         }
     }
 
-    private fun saveKits(count: Int) {
-        (1..count).forEach {
+    private fun saveKits(count: Int) =
+        (1..count).forEach { _ ->
             insuranceKitRepository.save(insuranceKitTransformer.transform(dto))
         }
-    }
-
 }
 
