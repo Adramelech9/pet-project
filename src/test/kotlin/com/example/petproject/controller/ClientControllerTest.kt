@@ -34,17 +34,15 @@ internal class ClientControllerTest {
     @MockBean
     private lateinit var clientService: ClientService
 
-    private var path = "/api/clients"
-
     @Test
     fun `get client`() {
-        mockMvc.get(path)
+        mockMvc.get(Companion.path)
             .andExpect { status().isOk }
     }
 
     @Test
     fun `find client`() {
-        mockMvc.get("$path/e")
+        mockMvc.get("${Companion.path}/e")
             .andExpect { status().isOk }
     }
 
@@ -57,7 +55,7 @@ internal class ClientControllerTest {
 
     private fun MockMvc.post(dto: ClientDto): ResultActions =
         perform(
-            MockMvcRequestBuilders.post(path)
+            MockMvcRequestBuilders.post(Companion.path)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(dto))
         )
@@ -71,8 +69,8 @@ internal class ClientControllerTest {
             lastName = "name"
         )
 
-    private fun dto(): Stream<Arguments?>? {
-        return Stream.of(
+    private fun dto(): Stream<Arguments> =
+        Stream.of(
             Arguments.of(createValidDto(), true),
             Arguments.of(createValidDto().apply {
                 setField(this, "email", "123456")
@@ -96,5 +94,9 @@ internal class ClientControllerTest {
                 setField(this, "lastName", "A")
             }, false)
         )
+
+    companion object {
+
+        const val path = "/api/clients"
     }
 }
