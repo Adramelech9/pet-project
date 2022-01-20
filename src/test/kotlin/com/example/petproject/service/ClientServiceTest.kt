@@ -7,13 +7,9 @@ import com.example.petproject.transformer.ClientTransformer
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing
 import java.time.LocalDate
 
-@DataJpaTest
-@EnableJpaAuditing
-internal class ClientServiceTest {
+internal class ClientServiceTest : BaseRepositoryTest() {
 
     @Autowired
     private lateinit var clientRepository: ClientRepository
