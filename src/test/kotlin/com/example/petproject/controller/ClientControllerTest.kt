@@ -116,14 +116,6 @@ internal class ClientControllerTest {
         sendDto(invalidEmail).andExpect(status().is4xxClientError)
     }
 
-    private fun sendDto(dto: ClientDto): ResultActions {
-        return mockMvc.perform(
-            MockMvcRequestBuilders.post(path)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsBytes(dto))
-        )
-    }
-
     @ParameterizedTest
     @CsvSource("1@mail, 123456, 2000-01-02, Dio, Maria")
     fun `add new client`(argumentsAccessor: ArgumentsAccessor) {
@@ -134,6 +126,14 @@ internal class ClientControllerTest {
     @CsvSource("1@mail, 123456, 2000-01-02, '', Maria")
     fun `add new client without firstName`(argumentsAccessor: ArgumentsAccessor) {
         sendDto(createDto(argumentsAccessor)).andExpect(status().is4xxClientError)
+    }
+
+    private fun sendDto(dto: ClientDto): ResultActions {
+        return mockMvc.perform(
+            MockMvcRequestBuilders.post(path)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsBytes(dto))
+        )
     }
 
     private fun createDto(argumentsAccessor: ArgumentsAccessor) = ClientDto(
