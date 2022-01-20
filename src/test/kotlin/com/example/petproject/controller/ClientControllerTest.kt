@@ -5,6 +5,8 @@ import com.example.petproject.service.ClientService
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.aggregator.ArgumentsAccessor
+import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.EmptySource
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
@@ -122,5 +124,31 @@ internal class ClientControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(dto))
         )
+    }
+
+    @ParameterizedTest
+    @CsvSource("1@mail, 123456, 2000-01-02, Dio, Maria")
+    fun `add new client`(argumentsAccessor: ArgumentsAccessor) {
+        val dto = ClientDto(
+            email = argumentsAccessor.getString(0),
+            password = argumentsAccessor.getString(1),
+            birthDate = LocalDate.parse(argumentsAccessor.getString(2)),
+            firstName = argumentsAccessor.getString(3),
+            lastName = argumentsAccessor.getString(4)
+        )
+        sendDto(dto).andExpect(status().isOk)
+    }
+
+    @ParameterizedTest
+    @CsvSource("1@mail, 123456, 2000-01-02, '', Maria")
+    fun `add new client without firstName`(argumentsAccessor: ArgumentsAccessor) {
+        val dto = ClientDto(
+            email = argumentsAccessor.getString(0),
+            password = argumentsAccessor.getString(1),
+            birthDate = LocalDate.parse(argumentsAccessor.getString(2)),
+            firstName = argumentsAccessor.getString(3),
+            lastName = argumentsAccessor.getString(4)
+        )
+        sendDto(dto).andExpect(status().is4xxClientError)
     }
 }
