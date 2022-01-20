@@ -3,9 +3,11 @@ package com.example.petproject.repository
 import com.example.petproject.model.Client
 import com.example.petproject.model.dto.ShortClientDto
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Repository
 import javax.persistence.EntityManager
 import javax.persistence.criteria.CriteriaBuilder
 
+@Repository
 class ClientRepositoryCustomImpl : ClientRepositoryCustom {
 
     @Autowired
