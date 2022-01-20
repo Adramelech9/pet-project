@@ -36,13 +36,13 @@ internal class ClientControllerTest {
 
     @Test
     fun `get client`() {
-        mockMvc.get(Companion.PATH)
+        mockMvc.get(PATH)
             .andExpect { status().isOk }
     }
 
     @Test
     fun `find client`() {
-        mockMvc.get("${Companion.PATH}/e")
+        mockMvc.get("${PATH}/e")
             .andExpect { status().isOk }
     }
 
@@ -55,7 +55,7 @@ internal class ClientControllerTest {
 
     private fun MockMvc.post(dto: ClientDto): ResultActions =
         perform(
-            MockMvcRequestBuilders.post(Companion.PATH)
+            MockMvcRequestBuilders.post(PATH)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsBytes(dto))
         )
