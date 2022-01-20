@@ -49,7 +49,7 @@ internal class InsuranceKitServiceTest : BaseRepositoryTest() {
     }
 
     private fun saveKits(count: Int) =
-        (1..count).forEach { _ ->
+        (1..count).forEach {
             insuranceKitRepository.save(insuranceKitTransformer.transform(dto))
         }
 }
