@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor
 import org.junit.jupiter.params.provider.CsvSource
-import org.junit.jupiter.params.provider.EmptySource
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -15,7 +14,6 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.ResultActions
 import org.springframework.test.web.servlet.get
-import org.springframework.test.web.servlet.post
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import java.time.LocalDate
@@ -129,26 +127,20 @@ internal class ClientControllerTest {
     @ParameterizedTest
     @CsvSource("1@mail, 123456, 2000-01-02, Dio, Maria")
     fun `add new client`(argumentsAccessor: ArgumentsAccessor) {
-        val dto = ClientDto(
-            email = argumentsAccessor.getString(0),
-            password = argumentsAccessor.getString(1),
-            birthDate = LocalDate.parse(argumentsAccessor.getString(2)),
-            firstName = argumentsAccessor.getString(3),
-            lastName = argumentsAccessor.getString(4)
-        )
-        sendDto(dto).andExpect(status().isOk)
+        sendDto(createDto(argumentsAccessor)).andExpect(status().isOk)
     }
 
     @ParameterizedTest
     @CsvSource("1@mail, 123456, 2000-01-02, '', Maria")
     fun `add new client without firstName`(argumentsAccessor: ArgumentsAccessor) {
-        val dto = ClientDto(
-            email = argumentsAccessor.getString(0),
-            password = argumentsAccessor.getString(1),
-            birthDate = LocalDate.parse(argumentsAccessor.getString(2)),
-            firstName = argumentsAccessor.getString(3),
-            lastName = argumentsAccessor.getString(4)
-        )
-        sendDto(dto).andExpect(status().is4xxClientError)
+        sendDto(createDto(argumentsAccessor)).andExpect(status().is4xxClientError)
     }
+
+    private fun createDto(argumentsAccessor: ArgumentsAccessor) = ClientDto(
+        email = argumentsAccessor.getString(0),
+        password = argumentsAccessor.getString(1),
+        birthDate = LocalDate.parse(argumentsAccessor.getString(2)),
+        firstName = argumentsAccessor.getString(3),
+        lastName = argumentsAccessor.getString(4)
+    )
 }
